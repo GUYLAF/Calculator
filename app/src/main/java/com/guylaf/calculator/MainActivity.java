@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private String inter = " ";
+    Calculator calcul = new Calculator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 setText("1");
             }
         });
-        
+
         final Button t2 = (Button) findViewById(R.id.t2);
         t2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setText("8");
+                textView.setText("0");
             }
         });
         final Button t9 = (Button) findViewById(R.id.t9);
@@ -107,62 +110,63 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = textView.getText().toString();
-                if (text != ",") {
+                if (!text.contains(",")) {
                     textView.setText(text + ",");
                 }
             }
         });
 
         final Button tequal = (Button) findViewById(R.id.t_equal);
-        tcomma.setOnClickListener(new View.OnClickListener() {
+        tequal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = textView.getText().toString();
-                if (text != ",") {
-                    textView.setText(text + ",");
-                }
+                textView.setText(inter);
             }
         });
-//
-//        final Button tdiv = (Button) findViewById(R.id.t_div);
-//        tcomma.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//        final Button tmul = (Button) findViewById(R.id.t_mul);
-//        tcomma.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//        final Button tsub = (Button) findViewById(R.id.t_sub);
-//        tcomma.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//        final Button tadd = (Button) findViewById(R.id.t_add);
-//        tcomma.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
 
+        final Button tdiv = (Button) findViewById(R.id.t_div);
+        tdiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double value = Double.valueOf(textView.getText().toString());
+                inter = String.valueOf(calcul.div(value,"/"));
+            }
+        });
+        final Button tmul = (Button) findViewById(R.id.t_mul);
+        tmul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double value = Double.valueOf(textView.getText().toString());
+                inter = String.valueOf(calcul.mult(value,"X"));
+            }
+        });
+        final Button tsub = (Button) findViewById(R.id.t_sub);
+        tsub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double value = Double.valueOf(textView.getText().toString());
+                inter = String.valueOf(calcul.sub(value,"-"));
+            }
+        });
+        final Button tadd = (Button) findViewById(R.id.t_add);
+        tadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double value = Double.valueOf(textView.getText().toString());
+                inter = String.valueOf(calcul.add(value,"+"));
+            }
+        });
     }
 
-    public void setText (String text) {
+    public void setText(String text) {
         final TextView textView = (TextView) findViewById(R.id.text_view);
         String saveText = textView.getText().toString();
-        if (saveText == "0") {
+        if (saveText.equals("0")) {
             textView.setText(text);
         } else {
             textView.setText(saveText + text);
         }
+
     }
 }
 
