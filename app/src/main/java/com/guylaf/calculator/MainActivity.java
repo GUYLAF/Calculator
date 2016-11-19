@@ -5,17 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
     public String str = "";
     Character op = 'q';
     double num, numtemp;
     TextView showResult;
+    boolean error = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         showResult = (TextView) findViewById(R.id.result_id);
 
     }
@@ -61,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btncommaClicked(View v) {
-//        str = str + ".";
-//        num = Integer.valueOf(str);
-//        showResult.setText(str);
+        if (!str.contains(".") && str != "") {
+            str = str + ".";
+            showResult.setText(str);
+        }
     }
 
     public void btnplusClicked(View v) {
@@ -114,15 +116,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate() {
-        if (op == '+')
+        if (op == '+') {
             num = numtemp + num;
-        else if (op == '-')
+        } else if (op == '-') {
             num = numtemp - num;
-        else if (op == '/')
-            num = numtemp / num;
-        else if (op == '*')
-            num = numtemp * num;
-        showResult.setText("" + num);
+        } else {
+            if (op == '/') {
+                if (num != 0) {
+                    num = numtemp / num;
+                } else {
+                    showResult.setText("ERROR");
+                    error = true;
+                }
+            } else if (op == '*') {
+                num = numtemp * num;
+            }
+        }
+        if (!error) {
+            affich();
+        } else {
+            error = false;
+        }
+    }
+
+    public void affich() {
+        double y = num - (int) num;
+        if (y == 0) {
+            showResult.setText("" + (int) num);
+        } else {
+            showResult.setText("" + num);
+        }
+        str = "";
+
     }
 }
 
