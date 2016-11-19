@@ -21,7 +21,7 @@
 
 
         <TextView
-            android:id="@+id/text_view"
+            android:id="@+id/result_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
@@ -31,11 +31,12 @@
             android:textSize="20pt"/>
 
         <Button
-            android:id="@+id/button_cancel"
+            android:id="@+id/Btnclear_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"
+            android:onClick="btnclearClicked"
             android:text="C" />
     </LinearLayout>
 
@@ -52,31 +53,35 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/t7"
+                android:id="@+id/btn7Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn7Clicked"
                 android:text="7" />
 
             <Button
-                android:id="@+id/t4"
+                android:id="@+id/btn4Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn4Clicked"
                 android:text="4" />
 
             <Button
-                android:id="@+id/t1"
+                android:id="@+id/btn1Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn1Clicked"
                 android:text="1" />
 
             <Button
-                android:id="@+id/t0"
+                android:id="@+id/btn0Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn0Clicked"
                 android:text="0" />
         </LinearLayout>
 
@@ -88,32 +93,36 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/t8"
+                android:id="@+id/btn8Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn8Clicked"
                 android:text="8" />
 
             <Button
-                android:id="@+id/t5"
+                android:id="@+id/btn5Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn5Clicked"
                 android:text="5" />
 
             <Button
-                android:id="@+id/t2"
+                android:id="@+id/btn2Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn2Clicked"
                 android:text="2" />
 
             <Button
-                android:id="@+id/t_comma"
+                android:id="@+id/Btncomma_id"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="," />
+                android:onClick="btncommaClicked"
+                android:text="." />
         </LinearLayout>
 
         <LinearLayout
@@ -124,31 +133,35 @@
 
 
             <Button
-                android:id="@+id/t9"
+                android:id="@+id/btn9Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn9Clicked"
                 android:text="9" />
 
             <Button
-                android:id="@+id/t6"
+                android:id="@+id/btn6Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn6Clicked"
                 android:text="6" />
 
             <Button
-                android:id="@+id/t3"
+                android:id="@+id/btn3Clicked"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btn3Clicked"
                 android:text="3" />
 
             <Button
-                android:id="@+id/t_equal"
+                android:id="@+id/Btnequal_id"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btnequalClicked"
                 android:text="=" />
 
         </LinearLayout>
@@ -161,31 +174,35 @@
 
 
             <Button
-                android:id="@+id/t_div"
+                android:id="@+id/Btndivide_id"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btndivideClicked"
                 android:text="/" />
 
             <Button
-                android:id="@+id/t_mul"
+                android:id="@+id/Btnmulti_id"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btnmultiClicked"
                 android:text="X" />
 
             <Button
-                android:id="@+id/t_sub"
+                android:id="@+id/Btnminus_id"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btnminusClicked"
                 android:text="-" />
 
             <Button
-                android:id="@+id/t_add"
+                android:id="@+id/Btnplus_id"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:onClick="btnplusClicked"
                 android:text="+" />
         </LinearLayout>
 
