@@ -1,9 +1,12 @@
 package com.guylaf.calculator;
 
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import hugo.weaving.DebugLog;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -12,6 +15,13 @@ public class MainActivity extends AppCompatActivity {
     double num, numtemp;
     TextView showResult;
     boolean error = false;
+
+
+    public String getName(String first, String last) {
+        SystemClock.sleep(15); // Don't ever really do this!
+        return first + " " + last;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @DebugLog
     public void btnplusClicked(View v) {
         perform();
         op = '+';
@@ -104,18 +115,19 @@ public class MainActivity extends AppCompatActivity {
         showResult.setText("");
     }
 
-    private void insert(int j) {
+    void insert(int j) {
         str = str + Integer.toString(j);
         num = Double.valueOf(str).doubleValue();
         showResult.setText(str);
     }
 
-    private void perform() {
+    void perform() {
         str = "";
         numtemp = num;
     }
 
-    private void calculate() {
+    @DebugLog
+    void calculate() {
         if (op == '+') {
             num = numtemp + num;
         } else if (op == '-') {
